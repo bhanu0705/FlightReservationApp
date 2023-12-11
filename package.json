@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "This is a react app",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://https://github.com/bhanu0705/react-app).git"
+    "url": "git+ssh://git@github.com/bhanu0705/react-app.git).git"
   },
   "author": "Uddagiri Bhanu Chakradhar",
   "license": "ISC",
@@ -16,6 +18,8 @@
   },
   "homepage": "https://github.com/bhanu0705/react-app.git)#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.10.3",
     "process": "^0.11.10"
   },
@@ -23,7 +27,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 versions"
   ]
 }

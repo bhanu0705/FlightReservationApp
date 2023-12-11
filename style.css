@@ -2,7 +2,28 @@
     margin: 0;
     box-sizing: border-box;
 }
-#container{
-    color: blanchedalmond;
-    background-color: black ;
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+}
+.nav-bar > ul{
+ list-style-type: none;
+ display: flex;
+}
+.nav-bar>ul>li{
+    padding: 10px;
+}
+.card{
+    width: 150px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 10px;
+}
+.card>img{
+    width: 100%;
+}
+.res-list{
+    display: flex;
 }
