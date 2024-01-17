@@ -12,13 +12,14 @@ function filterData(searchVal, resList){
     return filData;
 }
 const Body=()=>{
-    console.log("Checking if this log appears");
+    const[allRestaurants,setallRestaurants]=useState(resList);
+   const[filteredRestaurants,setfilteredRestaurants]=useState([]);
     const [restaurants, setrestaurants]=useState(resList);
     const [searchVal, setsearchVal]=useState("");
     useEffect(()=>{
-        
+       // setallRestaurants(allRestaurants);
+        setfilteredRestaurants(allRestaurants);
     },[]);
-    
     return(
         <>
         
@@ -28,17 +29,17 @@ const Body=()=>{
            className="search-input"
            placeholder="search"
            value={searchVal}
-           onChange={(e)=>
-            setsearchVal(e.target.value)
+           onChange={(e)=>{
+            setsearchVal(e.target.value);
+             }
         }
            />
            
            <button 
            className="search-btn" 
            onClick={()=>{
-            console.log("s");
-            const data=filterData(searchVal,restaurants);
-            setrestaurants(data);
+            const data=filterData(searchVal,allRestaurants);
+            setfilteredRestaurants(data);
            }}>
             Search
             </button> 
@@ -46,7 +47,7 @@ const Body=()=>{
         </div>
         <div className="res-list">
             {
-                restaurants.map((r) =>{
+                filteredRestaurants.map((r) =>{
                     return  <ResCard {...r} key={r.name}/>
                 })
             }

@@ -3,7 +3,7 @@ export const IMG_URL=
 
 export const resList=[
     {
-        name:"Burger king",
+        name:"Burger King",
         cuisines:["burger","american"],
         rating:"4.2",
     },
