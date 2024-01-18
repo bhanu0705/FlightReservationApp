@@ -17,6 +17,7 @@ const Body=()=>{
     const [restaurants, setrestaurants]=useState(resList);
     const [searchVal, setsearchVal]=useState("");
     useEffect(()=>{
+        console.log(1);
        // setallRestaurants(allRestaurants);
         setfilteredRestaurants(allRestaurants);
     },[]);
@@ -47,6 +48,7 @@ const Body=()=>{
         </div>
         <div className="res-list">
             {
+                
                 filteredRestaurants.map((r) =>{
                     return  <ResCard {...r} key={r.name}/>
                 })
