@@ -1,4 +1,5 @@
-import { IMG_URL } from "../constants";
+import { useEffect, useState } from "react";
+import { IMG_URL, resList } from "../constants";
 
 const ResCard=({name,rating})=>{
     return(
