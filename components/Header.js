@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import About from "./About";
 const Title=()=>( 
     <h1>
-      Hello
+      Flight Reservation System
   </h1>
 );
 
@@ -18,15 +18,13 @@ const Header=()=>{
          <div className="nav-bar">
           <ul>
             <li><Link to="/">Home</Link></li>
-          <li> <Link to="/about">About</Link></li> 
-             <li><Link to="/contact">contact us</Link></li>
-             <li>cart</li>
+          <li> <Link to="/about">About us</Link></li> 
+             <li><Link to="/contact">Contact us</Link></li>
+             
           </ul>
           </div>
-          {
-           isLoggedIn? <button onClick={()=>setIsLoggedIn(false)}>Logout</button>: <button onClick={()=>setIsLoggedIn(true)}>Login</button>
-            }
-        
+          
+         
      </div>
     );
  };

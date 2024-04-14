@@ -6,8 +6,8 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import {createBrowserRouter,RouterProvider,ErrorResponse, Outlet} from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
-import Profile from "./components/Profile";
+import LoginInputs from "./components/LoginInputs";
+import ProtectedRoute from "./components/ProtectedRoute";
 const App=()=>{
     return (
         <>
@@ -22,26 +22,24 @@ const router=createBrowserRouter([
         path:"/",
         element:<App />,
         errorElement:<Error />,
-        children:[{
+        children:[
+        {
           path:"/",
           element:<Body />,
         },
-            {
+        {
+            path:"/login",
+            element:<LoginInputs />
+        },
+         {
                 path:"/about",
                 element:<About />,
-                children:[
-                    {
-                        path:"profile",
-                        element:<Profile />
-                    }
-                ]
-            },{
+                
+         },
+         {
                 path:"/contact",
                 element:<Contact />
-            },{
-                path:"/restaurant/:id",
-                element:<RestaurantMenu />,
-            }
+         }
         ],
     },
 ]

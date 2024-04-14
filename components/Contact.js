@@ -1,6 +1,6 @@
 const Contact=()=>{
     return(
-        <h2>this is our number</h2>
+        <h2>this is our contact page</h2>
     )
 }
 export default Contact;

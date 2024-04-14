@@ -1,62 +1,32 @@
-import { useEffect, useState } from "react";
-import { resList } from "../constants";
-import ResCard from "./ResCard";
-import {Shimmer,Image} from "react";
+import React, { useEffect, useState } from "react";
+import RegInputs from "./RegInputs";
+import LoginInputs from "./LoginInputs";
 
-function filterData(searchVal, resList){
-    const filData=resList.filter((res)=>{
-
-        return res.name.includes(searchVal);
-    }
-    );
-    return filData;
-}
-const Body=()=>{
-    const[allRestaurants,setallRestaurants]=useState(resList);
-   const[filteredRestaurants,setfilteredRestaurants]=useState([]);
-    const [restaurants, setrestaurants]=useState(resList);
-    const [searchVal, setsearchVal]=useState("");
-    useEffect(()=>{
-        console.log(1);
-       // setallRestaurants(allRestaurants);
-        setfilteredRestaurants(allRestaurants);
-    },[]);
-    return(
+const Body = () => {
+    const [showRegInputs, setShowRegInputs] = useState(false);
+    const[showLoginInputs, setShowLoginInputs]=useState(false);
+    const handleRegisterClick = () => {
+        setShowRegInputs(true);
+        setShowLoginInputs(false);
+    };
+    const handleLoginClick = () =>{
+        setShowLoginInputs(true);
+        setShowRegInputs(false);
+    };
+    return (
         <>
-        
-        <div className="search-container">
-           <input 
-           type="text"
-           className="search-input"
-           placeholder="search"
-           value={searchVal}
-           onChange={(e)=>{
-            setsearchVal(e.target.value);
-             }
-        }
-           />
-           
-           <button 
-           className="search-btn" 
-           onClick={()=>{
-            const data=filterData(searchVal,allRestaurants);
-            setfilteredRestaurants(data);
-           }}>
-            Search
-            </button> 
-
-        </div>
-        <div className="res-list">
-            {
-                
-                filteredRestaurants.map((r) =>{
-                    return  <ResCard {...r} key={r.name}/>
-                })
-            }
+            <div className="menubar">
+                <button className="register-btn" onClick={handleRegisterClick}>
+                    Register
+                </button>
+                <button className="login-btn" onClick={handleLoginClick}>Login</button>
+            </div>
+           <div className="regform" style={{ display: showRegInputs || showLoginInputs ? "block" : "none" }}>
             
-        </div> 
+            {showRegInputs && <RegInputs />}
+            {showLoginInputs && <LoginInputs />}
+            </div>
         </>
-        
     );
 };
 
