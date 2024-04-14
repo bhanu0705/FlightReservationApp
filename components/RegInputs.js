@@ -1,36 +1,25 @@
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const RegInputs = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  //const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
-
+  const username=useRef(null);
+  const password=useRef(null);
+  const confirmPassword=useRef(null);
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Additional validation
-    if (password !== confirmPassword) {
+    if (password.current.value !== confirmPassword.current.value) {
       setError('Passwords do not match');
       return;
     }
-    // Submit the form data to the backend
-    // You can make an API call here to register the user
-    console.log('Username:', username);
-    console.log('Password: ', password);
-    console.log('Confirm Password:', confirmPassword);
+
+    console.log('Username:', username.current.value);
+    console.log('Password: ', password.current.value);
+    console.log('Confirm Password:', confirmPassword.current.value);
   };
 
   return (
@@ -38,17 +27,19 @@ const RegInputs = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label >Username</label><br></br>
-        <input id="userlabel" type="text" value={username} onChange={handleUsernameChange} />
+        <input ref={username} id="userlabel" type="text" />
       </div>
       <div>
         <label >Password</label><br></br>
-        <input id="passlabel" type="current-password"  value={password} onChange={handlePasswordChange} />
+        <input ref={password} id="passlabel" type="current-password" />
       </div>
       <div>
         <label>Confirm Password</label><br></br>
-        <input  id="confirmpasslabel" type="current-password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
+        <input ref={confirmPassword} id="confirmpasslabel" type="current-password" />
       </div>
+      
       {error && <div style={{ color: 'red' }}>{error}</div>}
+
       <button id="signup-btn" type="submit">Sign up</button>
     </form>
     </div>
