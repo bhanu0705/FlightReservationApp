@@ -4,15 +4,26 @@
 }
 .body{
     background-color: #1b241d;
-    color: aliceblue;
+    color:#EEF5FF;
+}
+.about,.contact{
+    color: #b78176;
+    margin: 50px 10px;
+    padding: 10px;
 }
 .header{
-    background-color: antiquewhite;
+    background-color: #EEF5FF;
     display: flex;
     justify-content: space-between;
     padding: 10px 10px;
     border: 1px solid rgb(241, 211, 211);
     border: none;
+}
+.logo{
+    font-family: "Poppins", sans-serif;
+    font-weight: 530;
+    font-style: bold;
+    color:#176B87;
 }
 .nav-bar > ul{
  list-style-type: none;
@@ -37,7 +48,7 @@
     display: flex;
 }
 .menubar{ 
-  background-color: antiquewhite;
+  background-color:#EEF5FF;
   height: 80px;
   display: flex;
   flex-direction: row;
@@ -48,55 +59,84 @@
   
 }
 .register-btn{
+    font-family: "Poppins", sans-serif;
+    font-weight:600;
     cursor: pointer;
-    width: 70px;
+    width: 95px;
     height: 40px;
     padding: 0 auto;
-    margin: 50px 30px;
-    border: none;
-    background-image: linear-gradient(
-        to right,
-        #ff512f 0%,
-        #67c07a 51%,
-        #bbaf29 100%
-      );
+    margin: 50px 15px;
+   border: none;
+    color: #EEF5FF;
+    border-radius: 100px;
+    background-color: #176B87;
+    opacity: 65%;
+}
+.register-btn:focus,.register-btn.clicked{
+    background-color:#176B87;
+    opacity: 100%;
 }
 .login-btn{
+    font-family: "Poppins", sans-serif;
+    font-weight:600;
     cursor: pointer;
-    width: 70px;
+    width: 90px;
     height: 40px;
     padding: 0 auto;
-    margin: 50px 30px;
+    margin: 50px 15px;
     border: none;
-    background-image: linear-gradient(
-        to right,
-        #ff512f 0%,
-        #67c07a 51%,
-        #bbaf29 100%
-      );
+    border-radius: 30px;
+    color: #EEF5FF;
+   background-color: #176B87;
+   opacity: 65%;
+}
+.login-btn:focus,.login-btn.clicked{
+    background-color:#176B87;
+    opacity: 100%;
 }
 .regform{
     margin: 50px auto;
     width: 230px;
+    height: 300px;
     padding: 30px;
-    background-color: antiquewhite;
+    background-color: #EEF5FF;
     display: flex;
     align-items: center;
+    border-radius: 15px;
 }
-
+#text{
+    color: #176B87;
+    font-family: "Poppins";
+    font-weight:400;
+    font-size: 13px;
+}
 #userlabel,#passlabel,#confirmpasslabel{
+  color: #176B87;
     padding: 8px;
     width: 150px;
     margin:  5px 0;
     border: none;
     outline: none;
-    background-color: white;
+    border-radius: 7px;
+    background-color: #fffffe;
 }
 
 #signup-btn{
-    margin: 9px 0;
-    border: 0.5px solid black;
+    font-family: "Poppins", sans-serif;
+    font-weight:600;
+    color: #176B87;
+    height: 35px;
+    width: 75px;
+    margin: 13px 45px;
     border-radius: 4px;
-    background-color: beige;
+    background-color:#EEF5FF;
+    opacity: 80%;
     cursor: pointer;
+    border: 1px solid teal;
+    border-radius: 20px;
+}
+#signup-btn:hover{
+  background-color: #176B87;
+  color: #EEF5FF;
+  opacity: 100%;
 }

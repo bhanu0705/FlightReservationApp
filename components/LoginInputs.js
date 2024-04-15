@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState,useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginInputs = () => {
@@ -6,7 +6,7 @@ const LoginInputs = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+ 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -15,6 +15,7 @@ const LoginInputs = () => {
     setPassword(event.target.value);
   };
 
+ 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -33,15 +34,16 @@ const LoginInputs = () => {
       console.log('role:',data.role);
       console.log('Token:', data.token);
       localStorage.setItem('token', data.token);
-      // Redirect based on the user's role
+      localStorage.setItem('isLoggedIn', true);
+      localStorage.setItem('role',data.role);
+
       if (data.role === 'user') {
-        // Navigate to user dashboard
-        navigate('/about');
-      } else if (data.role === 'admin') {
-        // Navigate to admin dashboard
+        navigate('/userpage');
+      }
+       else if (data.role === 'admin') {
         navigate('/contact');
-      } else {
-        // Handle unknown role
+      }
+       else {
         setError('Unknown user role');
       }
     } catch (error) {
@@ -54,11 +56,11 @@ const LoginInputs = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username</label><br/>
+          <label id="text">Username</label><br/>
           <input id="userlabel" type="text" value={username} onChange={handleUsernameChange} />
         </div>
         <div>
-          <label>Password</label><br/>
+          <label id="text">Password</label><br/>
           <input id="passlabel" type="password" value={password} onChange={handlePasswordChange} />
         </div>
         <button id="signup-btn" type="submit">Login</button>

@@ -1,18 +1,20 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
-  const isAuthenticated = !!localStorage.getItem('token'); // Check if token exists
-  const navigate = useNavigate();
+const ProtectedRoute = ({ component: Component }) => {
+    const [isLogged, setIsLogged] = useState(false);
+    const navigate = useNavigate();
 
-  if (!isAuthenticated) {
-    // Redirect to login page
-    navigate('/about');
-    return null; // Return null to prevent rendering of the protected component
-  }
+    useEffect(() => {
 
-  return <Route {...rest} render={(props) => <Component {...props} />} />;
-};
+        const isLoggedIn = !!localStorage.getItem('token');
+        setIsLogged(isLoggedIn);
+        if (!isLoggedIn) {
+            navigate('/');
+        }
+    }, []);
+
+    return isLogged ? <Component /> : null;
+}
 
 export default ProtectedRoute;
